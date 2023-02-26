@@ -102,7 +102,8 @@
                                     129.362C2.45775 97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 
                                     -0.149132 97.9666 0.00163737C136.23 0.303176 174.193 10.857 190.312 36.4879Z" />
 
-                                <image class="home_blob-img" y='-10' x='-10' xlink:href="/PersonalWeb/assets/img/perfil copy.png" />
+                                <image class="home_blob-img" y='-10' x='-10'
+                                    xlink:href="/PersonalWeb/assets/img/perfil copy.png" />
                             </g>
                         </svg>
                     </div>
@@ -165,7 +166,8 @@
                             </div> -->
                     </div>
                     <div class="about_buttons">
-                        <a download="" href="/PersonalWeb/assets/pdf/Alireza.Hadian.Resume.pdf" class="button button-flex">
+                        <a download="" href="/PersonalWeb/assets/pdf/Alireza.Hadian.Resume.pdf"
+                            class="button button-flex">
                             Download CV <i class="uil uil-download-alt button_icon"></i>
                         </a>
                     </div>
@@ -327,20 +329,20 @@
                         <div class="skills_list grid">
                             <div class="skills_data">
                                 <div class="skills_titles">
-                                    <h3 class="skills_name">Adobe photoshop</h3>
-                                    <span class="skills_number">80%</span>
-                                </div>
-                                <div class="skills_bar">
-                                    <span class="skills_percentage skill_photoshop"></span>
-                                </div>
-                            </div>
-                            <div class="skills_data">
-                                <div class="skills_titles">
                                     <h3 class="skills_name">Adobe premiere</h3>
                                     <span class="skills_number">90%</span>
                                 </div>
                                 <div class="skills_bar">
                                     <span class="skills_percentage skill_premiere"></span>
+                                </div>
+                                <div class="skills_data">
+                                    <div class="skills_titles">
+                                        <h3 class="skills_name">Adobe photoshop</h3>
+                                        <span class="skills_number">80%</span>
+                                    </div>
+                                    <div class="skills_bar">
+                                        <span class="skills_percentage skill_photoshop"></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -581,7 +583,7 @@
                     </div>
                 </div>
             </div>
-        </section>        
+        </section>
         <!--==================== PORTFOLIO ====================-->
         <section class="portfolio section" id="portfolio">
             <h2 class="section_title">Portfolio</h2>
@@ -595,14 +597,14 @@
                         <div class="portfolio_data">
                             <h3 class="portfolio_title">Modern website</h3>
                             <p class="portfolio_description">Electronic modern shop with many types of product.</p>
-                            <a href="#" class="button button-flex button-small portfolio_button">
+                            <a onclick="openModal();currentSlide(1)" class="hover-shadow cursor button button-flex button-small portfolio_button">
                                 Demo
                                 <i class="uil uil-arrow-right button_icon"></i>
                             </a>
 
                         </div>
                     </div>
-
+                </div>
                 <!-- Add Arrows -->
                 <!-- <div class="swiper-button-next">
                     <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
@@ -612,43 +614,92 @@
                 </div> -->
                 <!-- Add Pagination -->
                 <!-- <div class="swiper-pagination"></div> -->
-                
+
+            </div>
+
+            <!-- The Modal/Lightbox -->
+            <div id="portfolioModal" class="portfolio_modal">
+                <span class="close cursor" onclick="closeModal()">&times;</span>
+                <div class="modal-content">
+
+                    <div class="Slides">
+                        <img src="/PersonalWeb/assets/img/Modern Website.jpg" style="width:100%">
+                    </div>
+
+                    <div class="Slides">
+                        <img src="/PersonalWeb/assets/img/Modern Website Single page.png" style="width:100%">
+                    </div>
+
+                    <div class="Slides">
+                        <img src="/PersonalWeb/assets/img/Modern Website Sign up.png" style="width:100%">
+                    </div>
+
+                    <div class="Slides">
+                        <img src="/PersonalWeb/assets/img/Modern Website 404.png" style="width:100%">
+                    </div>
+
+                    <!-- Next/previous controls -->
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                    <!-- Caption text -->
+                    <div class="caption-container">
+                        <p id="caption"></p>
+                    </div>
+
+                    <!-- Thumbnail image controls -->
+                    <div class="column">
+                        <img class="demo" src="/PersonalWeb/assets/img/Modern Website.jpg" onclick="currentSlide(1)" alt="Index">
+                    </div>
+
+                    <div class="column">
+                        <img class="demo" src="/PersonalWeb/assets/img/Modern Website Single page.png" onclick="currentSlide(2)" alt="Single product page">
+                    </div>
+
+                    <div class="column">
+                        <img class="demo" src="/PersonalWeb/assets/img/Modern Website Sign up.png" onclick="currentSlide(3)" alt="Sign up">
+                    </div>
+
+                    <div class="column">
+                        <img class="demo" src="/PersonalWeb/assets/img/Modern Website 404.png" onclick="currentSlide(4)" alt="404">
+                    </div>
+                </div>
             </div>
         </section>
-<!--==================== CERTIFICATES ====================-->
-<section class="certificates section" id="certificates">
-    <h2 class="section_title">Certificates</h2>
-    <span class="section_subtitle">Finished course</span>
+        <!--==================== CERTIFICATES ====================-->
+        <section class="certificates section" id="certificates">
+            <h2 class="section_title">Certificates</h2>
+            <span class="section_subtitle">Finished course</span>
 
-    <div class="cerificates_container container grid">
-        
-        <!--==================== CERTIFICATE 1====================-->
-        <div class="certificate_content">
-            <div class="certificate_gallery">
-                    <img src="/PersonalWeb/assets/img/Asp.Net MVC.png" width="600" height="400">
-                <div class="desc">Asp.Net MVC</div>
+            <div class="cerificates_container container grid">
+
+                <!--==================== CERTIFICATE 1====================-->
+                <div class="certificate_content">
+                    <div class="certificate_gallery">
+                        <img src="/PersonalWeb/assets/img/Asp.Net MVC.png" width="600" height="400">
+                        <div class="desc">Asp.Net MVC</div>
+                    </div>
+                </div>
+                <!--==================== CERTIFICATE 2====================-->
+                <div class="certificate_content">
+                    <div class="certificate_gallery">
+                        <img src="/PersonalWeb/assets/img/HTML_certificate.jpg" width="600" height="400">
+                        <div class="desc">HTML</div>
+                    </div>
+                </div>
+                <!--==================== CERTIFICATE 3====================-->
+                <div class="certificate_content">
+                    <div class="certificate_gallery">
+                        <img src="/PersonalWeb/assets/img/CSS_certificate.jpg" width="600" height="400">
+                        <div class="desc">CSS</div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <!--==================== CERTIFICATE 2====================-->
-        <div class="certificate_content">
-            <div class="certificate_gallery">
-                    <img src="/PersonalWeb/assets/img/HTML_certificate.jpg" width="600" height="400">
-                <div class="desc">HTML</div>
+            <div class="popup_image">
+                <span class="uil uil-times"></span>
+                <img src="/PersonalWeb/assets/img/Asp.Net MVC.png" alt="">
             </div>
-        </div>
-        <!--==================== CERTIFICATE 3====================-->
-        <div class="certificate_content">
-            <div class="certificate_gallery">
-                    <img src="/PersonalWeb/assets/img/CSS_certificate.jpg" width="600" height="400">
-                <div class="desc">CSS</div>
-            </div>
-        </div>        
-    </div>
-    <div class="popup_image">
-        <span class="uil uil-times"></span>
-        <img src="/PersonalWeb/assets/img/Asp.Net MVC.png" alt="">
-    </div>
-</section>
+        </section>
         <!--==================== PROJECT IN MIND ====================-->
         <section class="project section">
             <div class="project_bg">
@@ -671,14 +722,14 @@
         <!-- <section class="testimonial section">
 
         </section> -->
-        
-<!--==================== BUy ME A COFFEE====================-->
-<section class="coffee section" id="coffee">
-    <a href="https://coffeebede.com/alirezahadian" target="_blank">
-        <i class="uil uil-coffee"></i>
-        <span class="coffee_title">Buy me a coffee (IRR)</span>
-    </a>
-    <!-- <div class="contact_container container grid">
+
+        <!--==================== BUy ME A COFFEE====================-->
+        <section class="coffee section" id="coffee">
+            <a href="https://coffeebede.com/alirezahadian" target="_blank">
+                <i class="uil uil-coffee"></i>
+                <span class="coffee_title">Buy me a coffee <span class="currency">(IRR)</span></span>
+            </a>
+            <!-- <div class="contact_container container grid">
         <div>
             <div class="contact_information">
                 <i class="uil uil-phone contact_icon"></i>
@@ -733,69 +784,69 @@
             </div>
         </form>
     </div> -->
-</section>
-</main>
-        <!--==================== CONTACT ME ====================-->
-        <section class="contact section" id="contact">
-            <h2 class="section_title">Contact Me</h2>
-            <span class="section_subtitle">Get in touch</span>
+        </section>
+    </main>
+    <!--==================== CONTACT ME ====================-->
+    <section class="contact section" id="contact">
+        <h2 class="section_title">Contact Me</h2>
+        <span class="section_subtitle">Get in touch</span>
 
-            <div class="contact_container container grid">
-                <div>
-                    <div class="contact_information">
-                        <i class="uil uil-phone contact_icon"></i>
+        <div class="contact_container container grid">
+            <div>
+                <div class="contact_information">
+                    <i class="uil uil-phone contact_icon"></i>
 
-                        <div>
-                            <h3 class="contact_title">Call Me</h3>
-                            <span class="contact_subtitle">(+98)093976763794</span>
-                        </div>
-                    </div>
-                    <div class="contact_information">
-                        <i class="uil uil-envelope contact_icon"></i>
-
-                        <div>
-                            <h3 class="contact_title">Email</h3>
-                            <span class="contact_subtitle">ali.h.reza8@gmail.com</span>
-                        </div>
-                    </div>
-                    <div class="contact_information">
-                        <i class="uil uil-map-marker contact_icon"></i>
-
-                        <div>
-                            <h3 class="contact_title">Location</h3>
-                            <span class="contact_subtitle">Esfahan - Khorasgan</span>
-                        </div>
+                    <div>
+                        <h3 class="contact_title">Call Me</h3>
+                        <span class="contact_subtitle">(+98)093976763794</span>
                     </div>
                 </div>
-                <form action="" class="contact_form grid">
-                    <div class="contact_inputs grid">
-                        <div class="contact_content">
-                            <label for="" class="contact_label">Name</label>
-                            <input type="text" class="contact_input">
-                        </div>
-                        <div class="contact_content">
-                            <label for="" class="contact_label">Phone/Email</label>
-                            <input type="email" class="contact_input">
-                        </div>
+                <div class="contact_information">
+                    <i class="uil uil-envelope contact_icon"></i>
+
+                    <div>
+                        <h3 class="contact_title">Email</h3>
+                        <span class="contact_subtitle">ali.h.reza8@gmail.com</span>
                     </div>
+                </div>
+                <div class="contact_information">
+                    <i class="uil uil-map-marker contact_icon"></i>
+
+                    <div>
+                        <h3 class="contact_title">Location</h3>
+                        <span class="contact_subtitle">Esfahan - Khorasgan</span>
+                    </div>
+                </div>
+            </div>
+            <form action="" class="contact_form grid">
+                <div class="contact_inputs grid">
                     <div class="contact_content">
-                        <label for="" class="contact_label">Project</label>
+                        <label for="" class="contact_label">Name</label>
                         <input type="text" class="contact_input">
                     </div>
                     <div class="contact_content">
-                        <label for="" class="contact_label">Message</label>
-                        <textarea name="" id="" cols="0" rows="7" class="contact_input"></textarea>
+                        <label for="" class="contact_label">Phone/Email</label>
+                        <input type="email" class="contact_input">
                     </div>
+                </div>
+                <div class="contact_content">
+                    <label for="" class="contact_label">Project</label>
+                    <input type="text" class="contact_input">
+                </div>
+                <div class="contact_content">
+                    <label for="" class="contact_label">Message</label>
+                    <textarea name="" id="" cols="0" rows="7" class="contact_input"></textarea>
+                </div>
 
-                    <div>
-                        <a href="#" class="button button-flex">
-                            Send Message
-                            <i class="uil uil-message button_icon"></i>
-                        </a>
-                    </div>
-                </form>
-            </div>
-        </section>
+                <div>
+                    <a href="#" class="button button-flex">
+                        Send Message
+                        <i class="uil uil-message button_icon"></i>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </section>
     </main>
 
     <!--==================== FOOTER ====================-->

@@ -655,6 +655,9 @@ img {
 .portfolio_description{
   margin-bottom: var(--mb-0-75); 
 }
+.portfolio_button{
+  cursor: pointer;
+}
 .portfolio_button:hover .button_icon{
   transform: translateX(.25rem);
 }
@@ -682,6 +685,108 @@ img {
 .swiper-button-prev,
 .swiper-pagination-bullet{
   outline: none;
+}
+.column {
+  float: left;
+  width: 25%;
+}
+.portfolio_modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  max-width: 1200px;
+  border-radius: .5rem;
+}
+.close {
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Hide the slides by default */
+.Slides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+  background-color: rgba(0, 0, 0, 0.4);
+
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+
+/* Caption text */
+.caption-container {
+  text-align: center;
+  background-color: black;
+  padding: 7px 16px;
+  color: white;
+}
+
+img.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+
+img.hover-shadow {
+  transition: 0.3s;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 /*==================== CERTIFICATES ==================*/
 div.certificate_gallery {
@@ -734,7 +839,7 @@ div.desc {
   position: absolute;
   top: 0; 
   right: 10px;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: var(--font-semi-bold);
   color: #FFF;
   cursor: pointer;
@@ -785,6 +890,7 @@ div.desc {
   text-align: center;
   color: var(--first-color);
   transition: .5s;
+  position: relative;
 }
 .coffee_title{
   text-align: center;
@@ -800,7 +906,10 @@ div.desc {
 .coffee:hover .coffee_title{
   color: var(--first-color-alt);
 }
-
+.currency{
+  color: var(--first-color);
+  font-size: 0.7rem;
+}
 /*==================== CONTACT ME ====================*/
 .contact_container{
   row-gap: 3rem;
