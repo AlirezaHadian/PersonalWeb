@@ -1,7 +1,7 @@
 /*==================== MENU SHOW Y HIDDEN ====================*/
-const navMenu = document.getElementById("nav-menu"),
-  navToggle = document.getElementById("nav-toggle"),
-  navClose = document.getElementById("nav-close");
+const navMenu = document.getElementById("main_nav-menu"),
+  navToggle = document.getElementById("main_nav-toggle"),
+  navClose = document.getElementById("main_nav-close");
 
 /*===== MENU SHOW =====*/
 /* Validate if constant exists */
@@ -20,10 +20,10 @@ if (navClose) {
 }
 
 /*==================== REMOVE MENU MOBILE ====================*/
-const navLink = document.querySelectorAll(".nav_link");
+const navLink = document.querySelectorAll(".main_nav_link");
 
 function linkAction() {
-  const navMenu = document.getElementById("nav-menu");
+  const navMenu = document.getElementById("main_nav-menu");
   // When we click on each nav__link, we remove the show-menu class
   navMenu.classList.remove("show-menu");
 }
@@ -72,18 +72,18 @@ modalCloses.forEach((modalClose)=> {
   })
 })
 /*==================== PORTFOLIO SWIPER  ====================*/
-    // var swiper = new Swiper('.swiper', {
-    //   cssMode: true,
-    //   loop: true,
-    //   navigation: {
-    //     nextEl: '.swiper-button-next',
-    //     prevEl: '.swiper-button-prev',
-    //   },
-    //   pagination: {
-    //     el: '.swiper-pagination',
-    //     clickable: true,
-    //   }
-    // });
+    let swiper = new Swiper('.main_portfolio_container', {
+       cssMode: true,
+       loop: true,
+       navigation: {
+         nextEl: '.swiper-button-next',
+         prevEl: '.swiper-button-prev',
+       },
+       pagination: {
+         el: '.swiper-pagination',
+         clickable: true,
+       }
+     });
 
 /*==================== PORTFOLIO MODAL ====================*/
 function openModal() {
@@ -140,18 +140,18 @@ function scrollActive(){
         sectionId = current.getAttribute('id')
 
         if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-            document.querySelector('.nav_menu a[href*=' + sectionId + ']').classList.add('active-link')
+            document.querySelector('.main_nav_menu a[href*=' + sectionId + ']').classList.add('active-link')
         }else{
-            document.querySelector('.nav_menu a[href*=' + sectionId + ']').classList.remove('active-link')
+            document.querySelector('.main_nav_menu a[href*=' + sectionId + ']').classList.remove('active-link')
         }
     })
 }
 window.addEventListener('scroll', scrollActive)
 /*==================== CHANGE BACKGROUND HEADER ====================*/
 function scrollHeader(){
-  const nav = document.getElementById('header')
+  const nav = document.getElementById('main_header')
   // When the scroll is greater than 200 viewport height, add the scroll-header class to the header tag
-  if(this.scrollY >= 280) nav.classList.add('scroll-header'); else nav.classList.remove('scroll-header')
+  if(this.scrollY >= 80) nav.classList.add('scroll-header'); else nav.classList.remove('scroll-header')
 }
 window.addEventListener('scroll', scrollHeader)
 
@@ -194,7 +194,7 @@ themeButton.addEventListener('click', () => {
 })
 
 /*=======================IMAGE POPUP====================== */
-document.querySelectorAll('.cerificates_container img').forEach(image =>{
+document.querySelectorAll('.main_cerificates_container img').forEach(image =>{
   image.onclick = () =>{
     document.querySelector('.popup_image').style.display = 'block';
     document.querySelector('.popup_image img').src = image.getAttribute('src');
@@ -204,3 +204,53 @@ document.querySelectorAll('.cerificates_container img').forEach(image =>{
 document.querySelector('.popup_image span').onclick = ()=>{
   document.querySelector('.popup_image').style.display = 'none';
 }
+
+
+/*========================CHANGE THE THEME COLOR======== */
+function changeTheme() {
+  const slider = document.getElementById("hue-slider");
+  const hueValue = slider.value;
+  var root = document.querySelector(':root');
+  var rootStyle =  getComputedStyle(root);
+  // Convert hue value to HSL format
+  root.style.setProperty('--hue-color', hueValue);
+  //rootStyle.getPropertyValue('--hue-color') = hueValue;
+
+  document.body.style.backgroundColor = hslColor;
+  // Add other CSS changes for your theme (e.g., text color, button styles, etc.)
+  // For example: document.body.style.color = "your-color";
+
+  // Update the slider thumb color to match the selected hue
+  const thumb = document.querySelector(".slider::-webkit-slider-thumb");
+  thumb.style.backgroundColor = hslColor;
+
+  // Update the slider value display
+  const sliderValue = document.getElementById("slider-value");
+  sliderValue.innerHTML = hueValue;
+}
+
+const showVolumeButton = document.getElementById('color-theme-button');
+const volumeContainer = document.getElementById('popover');
+
+showVolumeButton.addEventListener('click', () => {
+  volumeContainer.style.display = 'block';
+  volumeContainer.style.animation = "fadeIn 0.3s ease-in-out";
+  
+});
+
+document.addEventListener('click', (event) => {
+  if (!volumeContainer.contains(event.target) && event.target !== showVolumeButton) {
+    volumeContainer.style.display = 'none';
+    volumeContainer.style.animation = "fadeOut 0.3s ease-in-out";
+  }
+});
+
+
+// Update the slider value display
+const slider = document.getElementById("hue-slider");
+
+slider.oninput = function() {
+  changeTheme(); // Call the changeTheme function when the slider is moved
+};
+
+
