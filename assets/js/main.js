@@ -211,37 +211,25 @@ function changeTheme() {
   const slider = document.getElementById("hue-slider");
   const hueValue = slider.value;
   var root = document.querySelector(':root');
-  var rootStyle =  getComputedStyle(root);
   // Convert hue value to HSL format
   root.style.setProperty('--hue-color', hueValue);
-  //rootStyle.getPropertyValue('--hue-color') = hueValue;
 
-  document.body.style.backgroundColor = hslColor;
-  // Add other CSS changes for your theme (e.g., text color, button styles, etc.)
-  // For example: document.body.style.color = "your-color";
-
-  // Update the slider thumb color to match the selected hue
-  const thumb = document.querySelector(".slider::-webkit-slider-thumb");
-  thumb.style.backgroundColor = hslColor;
-
-  // Update the slider value display
-  const sliderValue = document.getElementById("slider-value");
-  sliderValue.innerHTML = hueValue;
+  localStorage.setItem('userColor', hueValue);
 }
 
-const showVolumeButton = document.getElementById('color-theme-button');
-const volumeContainer = document.getElementById('popover');
+const showColorButton = document.getElementById('color-theme-button');
+const colorContainer = document.getElementById('popover');
 
-showVolumeButton.addEventListener('click', () => {
-  volumeContainer.style.display = 'block';
-  volumeContainer.style.animation = "fadeIn 0.3s ease-in-out";
+showColorButton.addEventListener('click', () => {
+  colorContainer.style.display = 'block';
+  colorContainer.style.animation = "fadeIn 0.3s ease-in-out";
   
 });
 
 document.addEventListener('click', (event) => {
-  if (!volumeContainer.contains(event.target) && event.target !== showVolumeButton) {
-    volumeContainer.style.display = 'none';
-    volumeContainer.style.animation = "fadeOut 0.3s ease-in-out";
+  if (!colorContainer.contains(event.target) && event.target !== showColorButton) {
+    colorContainer.style.display = 'none';
+    colorContainer.style.animation = "fadeOut 0.3s ease-in-out";
   }
 });
 
@@ -254,3 +242,17 @@ slider.oninput = function() {
 };
 
 
+window.onload = function() {
+  if (typeof(Storage) !== "undefined") {
+    if (localStorage.getItem('userColor')) {
+      console.log('The item exists in local storage:', localStorage.getItem('userColor'));
+      var root = document.querySelector(':root');
+      root.style.setProperty('--hue-color', localStorage.getItem('userColor'));
+      document.getElementById('hue-slider').value = localStorage.getItem('userColor');
+    } else {
+      console.log('The item does not exist in local storage.');
+    }
+  } else {
+    console.log('Local storage is not supported by the browser.');
+  }
+};
